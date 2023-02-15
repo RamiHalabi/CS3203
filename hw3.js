@@ -14,25 +14,31 @@ const computeSum = (x) => {
   return sum;
 };
 
-console.log(computeSum([1, 2, 3, 4, 5]));
-
 // Question 2
 const computeProduct = (x) => {
-  // base case
-  if (x.length < 1) {
-    // length is 0
-    return 0;
-  } else if (x.length == 1) {
-    // length is 1
-    return x[0];
-  }
-
   // calculate product
   let product = 1;
   for (let i = 0; i < x.length; i++) {
     product *= x[i];
   }
-  return product;
+  return x.length < 1 ? 0 : x.length == 1 ? x[0] : product;
 };
 
-console.log(computeProduct([1, 2, 3, 4, 5]));
+
+// assist for user input
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// Question 3
+const main = () => {
+  readline.question("Enter numbers separated by spaces: ", function (input) {
+    const list = input.trim().split(' ').map(Number);
+    console.log(`the sum of [${list}] is `+ computeSum(list));
+    console.log(`the product of [${list}] is `+ computeProduct(list));
+    readline.close();
+  });
+};
+
+main();
