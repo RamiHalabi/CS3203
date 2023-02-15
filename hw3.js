@@ -54,6 +54,7 @@ const main = () => {
     const list = input.trim().split(" ").map(Number);
     console.log(`the sum of [${list}] is ` + computeSum(list));
     console.log(`the product of [${list}] is ` + computeProduct(list));
+    console.log(`the reversal of [${list}] is + [${computeReverse(list)}]`);
     readline.close();
   });
 };
